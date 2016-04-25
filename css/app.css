@@ -1,0 +1,78 @@
+body {
+    padding-top: 20px;
+}
+
+.tvs {
+    list-style: none;
+}
+
+.trumb { /** Стили для class = trumb **/
+    float: left;
+    margin: -0.5em 1em 1.5em 0;
+    padding-bottom: 10em;
+    height: 100px;
+    width: 100px;
+}
+
+.tvs li { /** Стили для списка телевизоров **/
+    clear: both;
+    height: auto;
+    width: auto;
+    padding-top: 50px;
+    overflow: auto;
+}
+
+/** Стили для подробной информации объектов **/
+img.tv {
+    float: left;
+    border: 1px solid black;
+    margin-right: 3em;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 2em;
+    height: 400px;
+    width: 400px;
+}
+
+ul.tv-thumbs li {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 1em;
+    background-color: white;
+}
+
+ul.tv-thumbs img {
+    height: 100px;
+    width: 100px;
+    padding: 1em;
+}
+/** Стили для таблицы характеристик **/
+ul.specs {
+    clear: both;
+    /*margin: 0;*/
+    width: 1200px;
+    list-style: none;
+    padding-top: 10px;
+    padding-left: 300px;
+    margin-top: 450px;
+    margin-left: 150px;
+}
+
+ul.specs > li{
+    display: inline-block;
+    width: 250px;
+    vertical-align: top;
+}
+
+h1 {
+    border-bottom: 1px solid gray;
+}
+
+/** При наведении на изображение изменяет тип курсора **/
+ul.tv-thumbs img:hover {
+    cursor: pointer;
+}
+
+td {
+    width: 400px;
+}

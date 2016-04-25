@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <title></title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="blog.css" rel="stylesheet">-->
+</head>
+<body ng-controller="AddTvCtrl">
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item " href="#/catalog">Вернуться в Каталог</a>
+        </nav>
+    </div>
+</div>
+<div class="leftsidebar">
+    <form class="form-horizontal" ng-submit="AddTv(files)">
+        <fieldset>
+           <!-- Form Name -->
+            <legend style="text-align: center">Create TV</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="txtTitle">Модель</label>
+                <div class="col-md-4">
+                    <input id="txtTitle" ng-model="tv.model" name="txtTitle" type="text" placeholder="" class="form-control input-md">
+                </div>
+            </div>
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="txtPost">Описание</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" ng-model="tv.description" id="txtPost" name="txtPost"></textarea>
+                </div>
+            </div>
+
+            <!--<div class="form-group">-->
+
+                <!--<div class="col-md-4">-->
+                    <!--<input id="loadFile" ngf-select ng-model="files" ng-model="tv.images" type="file" name="photo" multiple accept="image/*,image/jpeg" >-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!-- Show image thumb and remove option -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="pictures">Изображения</label>
+                <div class="col-md-4">
+                    <input id="pictures" type="file" ngf-select ng-model="files" multiple name="file"
+                           accept="image/*" class="btn btn-primary"/>
+                </div>
+            </div>
+
+
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4">
+                    <input id="singlebutton" ng-disabled="!tv.model || !tv.description " name="singlebutton" class="btn btn-primary" type="submit" value="Создать" />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

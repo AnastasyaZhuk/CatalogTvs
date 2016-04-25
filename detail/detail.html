@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Script Tutorials"/>
+    <title>Photo Gallery with AngularJS and CSS3 | Script Tutorials</title>
+    <meta name="description" content="Photo Gallery with AngularJS and CSS3 - demo page">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<body ng-controller="TVDetailCtrl">
+
+<!-- slider container -->
+<div class="container slider">
+    <!-- enumerate all photos -->
+    <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()"
+         ng-show="isActive($index)" ng-src="{{photo.src}}"/>
+    <!-- prev / next controls -->
+    <a class="arrow prev" href="#" ng-click="showPrev()"></a>
+    <a class="arrow next" href="#" ng-click="showNext()"></a>
+    <!-- extra navigation controls -->
+    <ul class="nav">
+        <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
+            <img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);"/>
+        </li>
+    </ul>
+</div>
+<div>
+
+    <ul class="specs">
+        <h2>{{tvs.name}}</h2>
+        <p>{{tvs.description[0]}} </br>  {{tvs.description[1]}}
+            <!--</br></br> {{tvs.description[3]}} </br>  {{tvs.description[4]}}-->
+            <!--</br></br> {{tvs.description[5]}}  </br> {{tvs.description[6]}}-->
+            <!--</br></br> {{tvs.description[7]}} </br> {{tvs.description[8]}}-->
+        </p> <!--  Отображает подробную информацию-->
+
+        <h3>Серия модели</h3><!-- Название свойства-->
+        <table class="table table-striped product-details-table" heigth="200px"> <!--  Объявлена таблица-->
+            <tbody>
+            <tr>
+                <td>Серия:</td> <!--  название колонки в таблице-->
+                <td >{{tvs.modelSeries.series}}</td>
+                <!--  Выводит для текущего объекта серию модели. Данные берет из {id}.json-->
+            </tr>
+            </tbody>
+        </table>
+
+        <!--  Для остальных свойст аналогичное описание, как для первого-->
+
+        <h3>Экран</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Диагональ экрана:</td>
+                <td valign="top">{{tvs.display.screenSize}}</td>
+            </tr>
+            <tr>
+                <td>Формат экрана:</td>
+                <td>{{tvs.display.screenFormat}}</td>
+            </tr>
+            <tr>
+                <td>Разрешение экрана:</td>
+                <td>{{tvs.display.screenResolution}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Системы обработки изображения</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Цифровое шумоподавление:</td>
+                <td>{{tvs.imageProcessingSystem.DigitalNoiseReduction}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Тюнер</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Цифоровой ТВ тюнер:</td>
+                <td>{{tvs.tuner.digitalTVTuner}}</td>
+            </tr>
+            <tr>
+                <td>Аналоговый ТВ тюнер:</td>
+                <td>{{tvs.tuner.analogTVTuner}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Звук</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Стереотюнер</td>
+                <td>{{tvs.sound.stereoTuner}}</td>
+            </tr>
+            <tr>
+                <td>Звук</td>
+                <td>{{tvs.tuner.sound}}</td>
+            </tr>
+            <tr>
+                <td>Мощность фронтальных АС</td>
+                <td>{{tvs.tuner.powerFrontSpeakers}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Воспроизведение с цифровых носителей</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Воспр. медиа с USB</td>
+                <td>{{tvs.playingDigitalMedia.USB}}</td>
+            </tr>
+            <tr>
+                <td>Воспроизведение MPEG4</td>
+                <td>{{tvs.playingDigitalMedia.MPEG4}}</td>
+            </tr>
+            <tr>
+                <td>Воспроизведение H.264</td>
+                <td>{{tvs.playingDigitalMedia.H264}}</td>
+            </tr>
+            <tr>
+                <td>Воспроизведение DivX</td>
+                <td>{{tvs.playingDigitalMedia.DivX}}</td>
+            </tr>
+            <tr>
+                <td>Воспроизведение MP3</td>
+                <td>{{tvs.playingDigitalMedia.MP3}}</td>
+            </tr>
+            <tr>
+                <td>Воспроизведение JPEG</td>
+                <td>{{tvs.playingDigitalMedia.JPEG}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <h3>Таймер</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Встроенные часы</td>
+                <td>{{tvs.timer.integratedClock}}</td>
+            </tr>
+            <tr>
+                <td>Sleep-таймер</td>
+                <td>{{tvs.timer.sleepClock}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <h3>Дистанционное управление</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Дистанционное управление</td>
+                <td>{{tvs.remoteControl.remoteControl}}</td>
+            </tr>
+            <tr>
+                <td>Тип дистанционного управления</td>
+                <td>{{tvs.remoteControl.typeOfRemoteControl}}</td>
+            </tr>
+            <tr>
+                <td>Тип батарей пульта ДУ</td>
+                <td>{{tvs.remoteControl.typeTheRemoteControlBatteries}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3>Интерфейсы</h3>
+        <table class="table table-striped product-details-table" heigth="200px">
+            <tbody>
+            <tr>
+                <td>Вход HDMI</td>
+                <td>{{tvs.interfaces.HDMIinput}}</td>
+            </tr>
+            <tr>
+                <td>Версия HDMI</td>
+                <td>{{tvs.interfaces.versionHDMI}}</td>
+            </tr>
+            <tr>
+                <td>Порт USB 2.0 тип A</td>
+                <td>{{tvs.interfaces.PortUSB20typeA}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </ul>
+</div>
+</body>
+
+</head>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" ng-app="myApp">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+<!--&lt;!&ndash;<link rel="icon" href="http://getbootstrap.com/favicon.ico">&ndash;&gt;-->
+<!--<title>AngularJS & Firebase Web App</title>-->
+<!--&lt;!&ndash;<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">&ndash;&gt;-->
+<!--&lt;!&ndash;<link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">&ndash;&gt;-->
+<!--</head>-->
+<!--<body ng-controller="TVDetailCtrl">-->
+
+<!--<div class="container">-->
+
+<!--&lt;!&ndash;<img ng-src="{{mainImageUrl}}" class="tv"> &lt;!&ndash; Главное изображение&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;<h1>{{tvs.name}}</h1>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash; enumerate all photos &ndash;&gt;-->
+<!--&lt;!&ndash; enumerate all photos &ndash;&gt;-->
+<!--<img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{photo.src}}" />-->
+
+<!--&lt;!&ndash; prev / next controls &ndash;&gt;-->
+<!--<a class="arrow prev" href="#" ng-click="showPrev()"></a>-->
+<!--<a class="arrow next" href="#" ng-click="showNext()"></a>-->
+
+<!--&lt;!&ndash; extra navigation controls &ndash;&gt;-->
+<!--<ul class="nav">-->
+<!--<li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">-->
+<!--<img src="{{photo.src}}" alt="{{photo.desc}}" title="{{photo.desc}}" ng-click="showPhoto($index);" />-->
+<!--</li>-->
+<!--</ul>-->
+
+
+<!--<ul class="tv-thumbs">-->
+<!--<li ng-repeat="img in tvs.images">  &lt;!&ndash;  Выводится коллекция изображения&ndash;&gt;-->
+
+<!--<img ng-src="{{img}}" ng-click="setImage(img)"> &lt;!&ndash;  При нажатии установить выбранное изображение&ndash;&gt;-->
+<!--</li>-->
+<!--</ul>-->
+
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+

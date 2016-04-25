@@ -1,0 +1,62 @@
+{
+  "name": "LG 24LF450U",
+  "images": [
+    {"src":"img/tvs/LG24LF450U.0.jpg", "desc": "Image 01"},
+    {"src":"img/tvs/LG24LF450U.2.jpg", "desc": "Image 02"},
+    {"src":"img/tvs/LG24LF450U.3.jpg", "desc": "Image 03"},
+    {"src":"img/tvs/LG24LF450U.4.jpg", "desc": "Image 04"}
+  ],
+
+  "description":["Smart-телевизоры Samsung стали быстрее и проще в обращении. Новый сервис Smart Hub от Samsung обеспечивает ускоренный доступ к расширенной коллекции развлекательного контента и предлагает рекомендации по просмотру фильмов и ТВ программ.",
+  "Усовершенствованные панели Smart Hub легче для навигации, особенно когда телевизор работает быстрее благодаря четырехъядерному процессору Quad Core. С помощью нового приложения Smart View 2.0 обмен контентом между телевизором, мобильным телефоном и планшетом стал предельно простым и свободным."],
+
+  "modelSeries":{
+    "series" : "LF"
+  },
+
+  "display" : {
+    "screenSize":"24'(60.9 см)",
+    "screenFormat":"16:9",
+    "screenResolution":"1366x768 Пикс (HD Ready)"
+  },
+
+  "imageProcessingSystem": {
+    "DigitalNoiseReduction":"Да"
+  },
+
+  "tuner":{
+    "digitalTVTuner":"DVB-T2/C/S2",
+    "analogTVTuner":"PAL/SECAM"
+  },
+
+  "sound":{
+    "stereoTuner":"A2/ NICAM",
+    "sound":"Virtual Surround",
+    "powerFrontSpeakers":"2 x 10 Вт"
+  },
+
+  "playingDigitalMedia":{
+    "USB":"Да",
+    "MPEG4":"Да",
+    "H264":"Да",
+    "DivX":"Да",
+    "MP3":"Да",
+    "JPEG":"Да"
+  },
+  "timer":{
+    "integratedClock":"Да",
+    "sleepClock":"Да"
+  },
+
+  "remoteControl":{
+    "remoteControl":"полное",
+    "typeOfRemoteControl":"К",
+    "typeTheRemoteControlBatteries":"2 х AAA (LR03)"
+  },
+
+  "interfaces":{
+    "HDMIinput":"1",
+    "versionHDMI":"1.4",
+    "PortUSB20typeA":"1"
+  }
+}
