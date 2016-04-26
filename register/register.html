@@ -4,38 +4,47 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-
-    <title>AngularJS & Firebase Web App</title>
-
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-
     <link href="justified-nav.css" rel="stylesheet">
 
 </head>
-
+<!-- Обработка данных будет осуществляться в контроллере RegisterCtrl-->
 <body  ng-controller="RegisterCtrl">
-
 
 <div class="container">
     <div class="jumbotron" style="padding-bottom:0px;">
         <h2 style="text-align: center">Регистрация</h2>
     </div>
+
+    <!-- Форма авторизации пользователя в системе-->
     <form class="form-signin" name="regForm" role="form">
+
+        <!-- Электронная почта-->
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
             <label>Email</label>
             <input type="email" name="email" class="form-control" ng-model="user.email">
+            <!-- Проверяется валидность введенного адреса электронной почты-->
             <p class="help-block" ng-show="regForm.email.$invalid">Формат адреса: test@gmail.com</p>
         </div>
+
+        <!-- Пароль-->
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
             <label>Password</label>
             <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="7">
+            <!-- Проверяется валидность введенного пароля-->
             <p style="color:red;" ng-show="error">{{errorMessage}}</p>
         </div>
+
+        <!-- Переход на страницу Авторизации пользователя-->
         <label class="checkbox">
             <a href="#/home"> Войти через логин/пароль<a/>
         </label>
+
+        <!-- Кнопка Зарегистрироваться, будет доступна для нажатия если поля электронной почты и пароля заполнены -->
+        <!-- При нажатии на данную кнопку, будет вызван метод signUp() контроллера RegisterCtrl -->
         <button type="button" ng-click="signUp();" ng-disabled="!user.email || !user.password" class="btn btn-lg btn-primary btn-block">Зарегистрироваться</button>
+        <!-- При возникновении ошибки будет отображаться поле regErrorMessage под формой -->
         <p style="color:red;" ng-show="regError">{{regErrorMessage}}</p>
     </form>
 

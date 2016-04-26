@@ -1,32 +1,44 @@
 <!DOCTYPE html>
+<!--Подключаем модуль "myApp"-->
 <html lang="en" ng-app="myApp">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <title>AngularJS & Firebase Web App</title>
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-    <!--<link href="justified-nav.css" rel="stylesheet">-->
 </head>
-<body ng-controller="HomeCtrl">
+<body ng-controller="HomeCtrl"> <!-- Обработка данных будет осуществляться в контроллере HomeCtrl-->
 <div class="container">
+
     <div class="jumbotron" style="padding-bottom:0px;">
         <h2 style="text-align: center">Войти в систему</h2>
     </div>
-    <form class="form-signin" name="signinForm" role="form">
+
+    <form class="form-signin" name="signinForm" role="form"> <!-- Форма авторизации пользователя в системе-->
+
+        <!-- Электронная почта-->
         <div class="form-group" ng-class="{ 'has-error' : signinForm.email.$invalid }">
             <label>Email</label>
             <input type="email" name="email" class="form-control" ng-model="user.email">
+            <!-- Проверяется валидность введенного адреса электронной почты-->
             <p class="help-block" ng-show="signinForm.email.$invalid">Формат адреса: test@gmail.com</p>
         </div>
+
+        <!-- Пароль-->
         <div class="form-group" ng-class="{ 'has-error' : signinForm.password.$invalid }">
             <label>Password</label>
             <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="7">
+            <!-- Проверяется валидность введенного пароля-->
             <p class="help-block" ng-show="signinForm.password.$error.minlength">Минимальная длина пароля 7 символов</p>
         </div>
+
+        <!-- Переход на страницу Регистрации пользователя-->
         <label class="checkbox">
             <a href="#/register">Регистрация</a>
         </label>
+
+        <!-- Кнопка Войти, будет доступна для нажатия если поля электронной почты и пароля заполнены -->
+        <!-- При нажатии на данную кнопку, будет вызван метод SignIn() контроллера HomeCtrl -->
         <button ng-disabled="!user.email || !user.password" type="button" ng-click="SignIn($event)" class="btn btn-lg btn-primary btn-block">Войти</button>
     </form>
 </div>

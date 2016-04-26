@@ -5,14 +5,13 @@ angular.module('myApp', [
     'ngAnimate',
     'ngTouch',
     'myApp.home',
-    'myApp.register',  // Newly added register route
-    'myApp.catalog',// Newly added module
+    'myApp.register',  
+    'myApp.catalog',
     'myApp.detail',
     'myApp.addTv'
-]).
+]). // Объявление всех модулей проекта
 config(['$routeProvider', function($routeProvider) {
-    // Set defualt view of our app to home
-
+    // По умолчанию приложение будет открываться /home
     $routeProvider.otherwise({
         redirectTo: '/home'
     });

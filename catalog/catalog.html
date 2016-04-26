@@ -3,6 +3,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/app.css"> <!-- подключение стилей к приложению -->
 </head>
+
+<!-- Используется контроллер TVListCtrl-->
 <body ng-controller="TVListCtrl">
 <!--<p class="lead">Аккаунт: {{username}}</p>-->
 
@@ -17,17 +19,22 @@
                 <option value="name">По алфавиту</option>
                 <option value="age">По обновлению</option>
             </select>
+
+            <!-- При добавлении товара перейдет /addTv -->
             <nav class="blog-nav">
                 <a class="blog-nav-item active" href="#/addTv">Добавить товар</a>
             </nav>
         </div>
-
+        <!-- Отображение списка всего каталога товаров-->
         <div class="col-md-10">
             <ul class="tvs">
                 <li ng-repeat="tv in tvs | filter:query | orderBy:orderProp" class="thumbnail">
+                    <!-- Отображение фото -->
                     <a href="#/detail/{{tv.id}}" class="trumb">
                         <img ng-src="{{tv.imageUrl}}" alt="{{tv.name}}" height="50px" width="150px"/></a>
+                    <!-- Отображение названия -->
                     <a href="#/detail/{{tv.id}}">{{tv.name}}</a>
+                    <!-- Отображение краткого описания-->
                     <p>{{tv.description}}</p>
                 </li>
             </ul>
