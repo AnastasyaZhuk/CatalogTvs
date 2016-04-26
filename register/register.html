@@ -30,7 +30,7 @@
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
             <label>Password</label>
             <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="7">
-            <p class="help-block" ng-show="regForm.password.$error.minlength">Минимальная длина пароля 7 символов</p>
+            <p style="color:red;" ng-show="error">{{errorMessage}}</p>
         </div>
         <label class="checkbox">
             <a href="#/home"> Войти через логин/пароль<a/>
