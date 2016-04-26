@@ -34,7 +34,6 @@ angular.module('myApp.register', ['ngRoute', 'firebase'])
                 $scope.errorMessage = "Пароль должен содержать: не меньше 7 символов, заглавную и прописную букву, цифру, знак преписания!";
             }
 
-
             if (s >= 5) {
                 $scope.error = false;
                 if (!$scope.regForm.$invalid) {

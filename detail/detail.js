@@ -42,4 +42,4 @@ tvControllers.controller('TVDetailCtrl', ['$scope', '$routeParams','$http',
         $scope.showPhoto = function (index) {
             $scope._Index = index;
         };
-    }]); // Установка главного изображения при переходе на страницу деталей для объекта. Данные берет из файла {id}.json
+    }]); 
