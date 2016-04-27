@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="utf-8">
@@ -25,32 +27,28 @@
             <!--<nav class="blog-nav">-->
             <!--<a class="blog-nav-item active" href="#/addTv">Добавить товар</a>-->
             <!--</nav>-->
-        </div>
 
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
             <div class="list-group list-group-horizontal">
-                <a href="#/tableView" class="list-group-item"><i class="fa fa-table" aria-hidden="true"></i></a>
-                <a href="#/catalog" class="list-group-item active"><i class="fa fa-th-list" aria-hidden="true"></i></a>
+                <a href="#/tableView" class="list-group-item active"><i class="fa fa-table" aria-hidden="true"></i></a>
+                <a href="#/catalog" class="list-group-item"><i class="fa fa-th-list" aria-hidden="true"></i></a>
             </div>
         </div>
 
-        <!-- Отображение списка всего каталога товаров-->
         <div class="col-md-10">
-            <ul class="tvs">
-                <li ng-repeat="tv in tvs | filter:query | orderBy:orderProp" class="thumbnail">
-                    <!-- Отображение фото -->
-                    <a href="#/detail/{{tv.id}}" class="trumb">
-                        <img ng-src="{{tv.imageUrl}}" alt="{{tv.name}}" height="50px" width="150px"/></a>
-                    <!-- Отображение названия -->
-                    <a href="#/detail/{{tv.id}}">{{tv.name}}</a>
-                    <!-- Отображение краткого описания-->
-                    <p>{{tv.description}}</p>
-                    <p>Гарантия: {{tv.guarantee}}</p>
-                    <p>Страна: {{tv.country}}</p>
-                    <p>Диагональ: {{tv.screenDiagonal}}</p>
-                    <p>Разрешение экрана: {{tv.screenResolution}}</p>
-                </li>
-            </ul>
+            <div class="row">
+                <div>
+                    <nav>
+                        <li ng-repeat="tv in tvs | filter:query | orderBy:orderProp">
+                            <a href="#/detail/{{tv.id}}" class="thumbnail"  style="width:350px;">
+                                <p>{{tv.name}}</p>
+                                <img ng-src="{{tv.imageUrl}}" alt="{{tv.name}}" >
+                            </a>
+                        </li>
+                        <nav>
+                </div>
+            </div>
         </div>
     </div>
 </div>

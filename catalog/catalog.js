@@ -9,7 +9,10 @@ tvControllers.config(['$routeProvider', function($routeProvider) {
          $routeProvider.when('/catalog', {
             templateUrl: 'catalog/catalog.html',
             controller: 'TVListCtrl'
-        })// Иначе отобразить /catalog
+        }).when('/tableView', {
+                 templateUrl: 'catalog/tableView.html',
+                 controller: 'TVListCtrl'
+             })// Иначе отобразить /catalog
              .otherwise({
              redirectTo: '/catalog'
          });

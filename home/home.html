@@ -6,6 +6,8 @@
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+    <link rel = "stylesheet" href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body ng-controller="HomeCtrl"> <!-- Обработка данных будет осуществляться в контроллере HomeCtrl-->
 <div class="container">
@@ -18,7 +20,7 @@
 
         <!-- Электронная почта-->
         <div class="form-group" ng-class="{ 'has-error' : signinForm.email.$invalid }">
-            <label>Email</label>
+            <label><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</label>
             <input type="email" name="email" class="form-control" ng-model="user.email">
             <!-- Проверяется валидность введенного адреса электронной почты-->
             <p class="help-block" ng-show="signinForm.email.$invalid">Формат адреса: test@gmail.com</p>
@@ -26,7 +28,7 @@
 
         <!-- Пароль-->
         <div class="form-group" ng-class="{ 'has-error' : signinForm.password.$invalid }">
-            <label>Password</label>
+            <label><i class="fa fa-key" aria-hidden="true"></i> Password</label>
             <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="7">
             <!-- Проверяется валидность введенного пароля-->
             <p class="help-block" ng-show="signinForm.password.$error.minlength">Минимальная длина пароля 7 символов</p>
@@ -39,7 +41,7 @@
 
         <!-- Кнопка Войти, будет доступна для нажатия если поля электронной почты и пароля заполнены -->
         <!-- При нажатии на данную кнопку, будет вызван метод SignIn() контроллера HomeCtrl -->
-        <button ng-disabled="!user.email || !user.password" type="button" ng-click="SignIn($event)" class="btn btn-lg btn-primary btn-block">Войти</button>
+        <button ng-disabled="!user.email || !user.password" type="button" ng-click="SignIn($event)" ng-keyup="SignIn($event)" class="btn btn-lg btn-primary btn-block">Войти</button>
     </form>
 </div>
 </body>
