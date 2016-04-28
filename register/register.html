@@ -6,7 +6,6 @@
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-    <link href="justified-nav.css" rel="stylesheet">
     <link rel = "stylesheet" href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <!-- Обработка данных будет осуществляться в контроллере RegisterCtrl-->
@@ -22,7 +21,7 @@
 
         <!-- Электронная почта-->
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
-            <label><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</label>
+            <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
             <input type="email" name="email" class="form-control" ng-model="user.email">
             <!-- Проверяется валидность введенного адреса электронной почты-->
             <p class="help-block" ng-show="regForm.email.$invalid">Формат адреса: test@gmail.com</p>
@@ -30,16 +29,14 @@
 
         <!-- Пароль-->
         <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
-            <label><i class="fa fa-key" aria-hidden="true"></i> Password</label>
+            <label><i class="fa fa-unlock" aria-hidden="true"></i> Password</label>
             <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="7">
             <!-- Проверяется валидность введенного пароля-->
             <p style="color:red;" ng-show="error">{{errorMessage}}</p>
         </div>
 
         <!-- Переход на страницу Авторизации пользователя-->
-        <label class="checkbox">
-            <a href="#/home"> Войти через логин/пароль<a/>
-        </label>
+        <label class="checkbox"> <a href="#/home"> Войти через логин/пароль<a/></label>
 
         <!-- Кнопка Зарегистрироваться, будет доступна для нажатия если поля электронной почты и пароля заполнены -->
         <!-- При нажатии на данную кнопку, будет вызван метод signUp() контроллера RegisterCtrl -->

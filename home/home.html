@@ -6,7 +6,6 @@
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
-
     <link rel = "stylesheet" href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body ng-controller="HomeCtrl"> <!-- Обработка данных будет осуществляться в контроллере HomeCtrl-->
@@ -19,19 +18,18 @@
     <form class="form-signin" name="signinForm" role="form"> <!-- Форма авторизации пользователя в системе-->
 
         <!-- Электронная почта-->
-        <div class="form-group" ng-class="{ 'has-error' : signinForm.email.$invalid }">
-            <label><i class="fa fa-envelope-o" aria-hidden="true"></i> Email</label>
+        <div class="form-group" ng-class="{ 'has-error' : regForm.email.$invalid }">
+            <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
             <input type="email" name="email" class="form-control" ng-model="user.email">
             <!-- Проверяется валидность введенного адреса электронной почты-->
-            <p class="help-block" ng-show="signinForm.email.$invalid">Формат адреса: test@gmail.com</p>
+            <p style="color:red;" class="help-block" ng-show="signinForm.email.$invalid">Некорректный формат почты</p>
         </div>
 
         <!-- Пароль-->
-        <div class="form-group" ng-class="{ 'has-error' : signinForm.password.$invalid }">
-            <label><i class="fa fa-key" aria-hidden="true"></i> Password</label>
+        <div class="form-group">
+            <label><i class="fa fa-unlock" aria-hidden="true"></i> Password</label>
             <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="7">
             <!-- Проверяется валидность введенного пароля-->
-            <p class="help-block" ng-show="signinForm.password.$error.minlength">Минимальная длина пароля 7 символов</p>
         </div>
 
         <!-- Переход на страницу Регистрации пользователя-->

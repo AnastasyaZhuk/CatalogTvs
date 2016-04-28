@@ -50,12 +50,12 @@ ul.tv-thumbs img {
 ul.specs {
     clear: both;
     /*margin: 0;*/
-    width: 1200px;
+    width: 70%;
     list-style: none;
     padding-top: 10px;
     padding-left: 300px;
     margin-top: 450px;
-    margin-left: 150px;
+    float: inherit;
 }
 
 ul.specs > li{
@@ -89,13 +89,11 @@ td {
     z-index: 5;
 }
 .arrow.prev {
-    background-image: url("../images/prev.png");
     left: 20px;
     opacity: 0.2;
     transition: all 0.2s linear 0s;
 }
 .arrow.next {
-    background-image: url("../images/next.png");
     opacity: 0.2;
     right: 20px;
     transition: all 0.2s linear 0s;
