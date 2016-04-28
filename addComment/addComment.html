@@ -3,25 +3,61 @@
 <head>
     <title></title>
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body ng-controller="AddCommentCtrl">
-<div class="blog-masthead">
-    <div class="container">
-        <!--<nav class="blog-nav">-->
-            <!--<a class="blog-nav-item " href="#/catalog">Вернуться в Каталог</a>-->
-        <!--</nav>-->
-    <!--</div>-->
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+    <div class="list-group list-group-horizontal">
+        <a href="#/detail/{{idTv}}" class="list-group-item"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </div>
 </div>
-<div class="leftsidebar">
-    <form class="form-horizontal" ng-submit="">
-        <fieldset>
+<div>
+    <div style="text-align: center;width: 200px; margin-left: 700px">
+        <button class="form-control">Новый отзыв</button>
+        <span>
+        <form class="form-horizontal" style="width: 1000px; margin-left: -400px; margin-top: 20px"
+              ng-submit="AddComment()">
+            <fieldset>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="txtTitle">Заголовок</label>
+                    <div class="col-md-4">
+                        <input id="txtTitle" name="txtTitle" type="text" ng-model="comment.title"
+                               class="form-control input-md">
+                    </div>
+                </div>
 
-            <legend style="text-align: center">Create Comment</legend>
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="txtPost">Комментарий</label>
+                    <div class="col-md-4">
+                        <textarea class="form-control" id="txtPost" name="txtPost" ng-model="comment.desc"></textarea>
+                    </div>
+                </div>
 
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <div class="col-md-4">
+                        <input id="singlebutton" ng-disabled="!comment.title || !comment.desc" name="singlebutton"
+                               class="btn btn-primary" type="submit" value="Оставить отзыв"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        </span>
+    </div>
 
-        </fieldset>
-    </form>
+    <div style="text-align: center; width: 50%;margin-left: 300px">
+        <ul class="tvs">
+            <li href="#" ng-repeat="comment in comments" ng-if="comment.idTv == idTv">
+                <h4 class="list-group-item active">{{comment.title}}</h4>
+                <p class="list-group-item active">{{comment.desc}}</p>
+                <p class="list-group-item active"> {{comment.user}}</p>
+            </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>

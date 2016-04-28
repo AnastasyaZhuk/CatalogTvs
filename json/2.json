@@ -1,0 +1,63 @@
+{
+  "name": "Samsung UE40J6330AU",
+  "images": [
+    {"src":"img/tvs/UE40J6330AU.0.jpg", "desc": "Image 01"},
+    {"src":"img/tvs/UE40J6330AU.1.jpg", "desc": "Image 02"},
+    {"src":"img/tvs/UE40J6330AU.2.jpg", "desc": "Image 03"},
+    {"src":"img/tvs/UE40J6330AU.3.jpg", "desc": "Image 04"},
+    {"src":"img/tvs/UE40J6330AU.4.jpg", "desc": "Image 05"},
+    {"src":"img/tvs/UE40J6330AU.5.jpg", "desc": "Image 06"}
+  ],
+
+  "description":[],
+
+  "modelSeries":{
+    "series" : "LF"
+  },
+
+  "display" : {
+    "screenSize":"24'(60.9 см)",
+    "screenFormat":"16:9",
+    "screenResolution":"1366x768 Пикс (HD Ready)"
+  },
+
+  "imageProcessingSystem": {
+    "DigitalNoiseReduction":"Да"
+  },
+
+  "tuner":{
+    "digitalTVTuner":"DVB-T2/C/S2",
+    "analogTVTuner":"PAL/SECAM"
+  },
+
+  "sound":{
+    "stereoTuner":"A2/ NICAM",
+    "sound":"Virtual Surround",
+    "powerFrontSpeakers":"2 x 10 Вт"
+  },
+
+  "playingDigitalMedia":{
+    "USB":"Да",
+    "MPEG4":"Да",
+    "H264":"Да",
+    "DivX":"Да",
+    "MP3":"Да",
+    "JPEG":"Да"
+  },
+  "timer":{
+    "integratedClock":"Да",
+    "sleepClock":"Да"
+  },
+
+  "remoteControl":{
+    "remoteControl":"полное",
+    "typeOfRemoteControl":"К",
+    "typeTheRemoteControlBatteries":"2 х AAA (LR03)"
+  },
+
+  "interfaces":{
+    "HDMIinput":"1",
+    "versionHDMI":"1.4",
+    "PortUSB20typeA":"1"
+  }
+}

@@ -226,3 +226,10 @@ li {
     float: left;
     width: 50%;
 }
+
+span {
+    display: none;
+}
+.show {
+    display: inline-block;
+}
