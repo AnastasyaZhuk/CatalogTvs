@@ -27,6 +27,10 @@ angular.module('myApp.home', ['ngRoute','firebase'])
 
     // Контроллер HomeCtrl
     .controller('HomeCtrl', ['$scope', '$location', 'CommonProp', '$firebaseAuth', function ($scope, $location, CommonProp, $firebaseAuth) {
+        // Ссылка на проект FireBase для проверки авторизации пользователя
+        var firebaseObj = new Firebase("https://radiant-torch-2188.firebaseIO.com");
+        var loginObj = $firebaseAuth(firebaseObj);
+
         $scope.SignIn = function(event) {
             event.preventDefault(); // предотвращаем перезагрузку страницы
             var username = $scope.user.email; // Получаем электронную почту 
@@ -47,7 +51,4 @@ angular.module('myApp.home', ['ngRoute','firebase'])
                     alert("Произошла ошибка при авторизации");
                 });
         };
-        // Ссылка на проект FireBase для проверки авторизации пользователя
-        var firebaseObj = new Firebase("https://radiant-torch-2188.firebaseIO.com");
-        var loginObj = $firebaseAuth(firebaseObj);
     }]);

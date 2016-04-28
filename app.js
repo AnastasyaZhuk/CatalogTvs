@@ -8,7 +8,7 @@ angular.module('myApp', [
     'myApp.register',  
     'myApp.catalog',
     'myApp.detail',
-    'myApp.addTv'
+    'myApp.addComment'
 ]). // Объявление всех модулей проекта
 config(['$routeProvider', function($routeProvider) {
     // По умолчанию приложение будет открываться /home

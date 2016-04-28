@@ -28,6 +28,7 @@ tvControllers.config(['$routeProvider', function($routeProvider) {
         $http.get('json/tvs.json').success(function(data) {
             $scope.tvs = data;
         });
+
        // Присванивание пользователя
          $scope.username = CommonProp.getUser();
          $scope.orderProp = 'age';
