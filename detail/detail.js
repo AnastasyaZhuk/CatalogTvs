@@ -15,6 +15,7 @@ angular.module('myApp.detail', ['ngRoute','ngAnimate','ngTouch'])
 tvControllers.controller('TVDetailCtrl', ['$scope', '$routeParams','$http',
     function ($scope, $routeParams, $http) {
         console.log("TVDetailCtrl");
+        $scope.idTv = $routeParams.tvId;
         $http.get('json/' + $routeParams.tvId + '.json').success(function (data) {
             $scope.tvs = data;
             $scope.photos = $scope.tvs.images;
