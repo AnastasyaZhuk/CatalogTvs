@@ -1,24 +1,29 @@
 <html lang="en">
 <head>
     <title></title>
+    <!-- Подключение стилей-->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
+<!-- Используется контроллер AddCommentCtrl-->
 <body ng-controller="AddCommentCtrl">
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
     <div class="list-group list-group-horizontal">
+        <!-- Вернуться на страницу товара-->
         <a href="#/detail/{{idTv}}" class="list-group-item"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
     </div>
 </div>
 <div>
+    <!-- Форма создания нового отзыва-->
     <div style="text-align: center;width: 200px; margin-left: 700px">
         <button class="form-control">Новый отзыв</button>
         <span>
+           <!-- Вызвать метод AddComment контроллера AddCommentCtrl-->
         <form class="form-horizontal" style="width: 1000px; margin-left: -400px; margin-top: 20px"
               ng-submit="AddComment()">
             <fieldset>
-                <!-- Text input-->
+                <!-- Поле для заголовка-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="txtTitle">Заголовок</label>
                     <div class="col-md-4">
@@ -27,7 +32,7 @@
                     </div>
                 </div>
 
-                <!-- Textarea -->
+                <!-- Поле для комментарий -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="txtPost">Комментарий</label>
                     <div class="col-md-4">
@@ -35,10 +40,11 @@
                     </div>
                 </div>
 
-                <!-- Button -->
+                <!-- Кнопка создания отзыва -->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="singlebutton"></label>
                     <div class="col-md-4">
+                         <!-- Пока не заполнены поля Заголовок и Комментарии делать кнопку Оставить отзыв неактивной -->
                         <input id="singlebutton" ng-disabled="!comment.title || !comment.desc" name="singlebutton"
                                class="btn btn-primary" type="submit" value="Оставить отзыв"/>
                     </div>
@@ -48,6 +54,7 @@
         </span>
     </div>
 
+    <!-- отображение списка всех отзывов-->
     <div style="text-align: center; width: 50%;margin-left: 300px">
         <ul class="tvs">
             <li href="#" ng-repeat="comment in comments" ng-if="comment.idTv == idTv">
